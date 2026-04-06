@@ -12,3 +12,6 @@ coverage.txt
 .vscode/
 *.swp
 *.swo
+
+# Others
+.DS_Store

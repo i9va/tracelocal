@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zero-config local distributed tracing for backend developers. Run tracelocal, point your OTLP SDK at localhost:4317, and watch your traces appear in the terminal." />
+  <title>tracelocal — local distributed tracing in your terminal</title>
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="logo-link">
+        <img src="logo.svg" alt="tracelocal" class="logo" height="28" />
+      </a>
+      <nav>
+        <a href="#install">Install</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="https://github.com/i9va/tracelocal" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Distributed tracing.<br>No Jaeger. No cloud.<br>Just your terminal.</h1>
+        <p class="hero-sub">
+          Run one binary, point your OTel SDK at <code>localhost:4317</code>,
+          and watch your spans appear live — zero config, zero infra.
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#install">Get started</a>
+          <a class="btn-ghost" href="https://github.com/i9va/tracelocal" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+
+        <div class="terminal-preview">
+          <div class="terminal-bar">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="terminal-title">tracelocal</span>
+          </div>
+          <pre class="terminal-body">
+  <span class="dim">OTLP/gRPC  :4317   OTLP/HTTP  :4318</span>
+
+  <span class="service-a">svc-api</span>  › <span class="span-name">POST /checkout</span>       <span class="duration">45ms</span>   <span class="dim">(4 spans)</span>
+  <span class="service-b">svc-auth</span> › <span class="span-name">ValidateToken</span>        <span class="duration">12ms</span>   <span class="dim">(1 span)</span>
+  <span class="service-c">svc-cart</span> › <span class="span-name">GetCart</span>              <span class="duration"> 8ms</span>   <span class="dim">(2 spans)</span>
+  <span class="error">svc-db</span>   › <span class="span-name">db.query</span>             <span class="duration"> 3ms</span>   <span class="dim err">✕ error</span>
+
+  <span class="dim">──────────────────────────────────────────────</span>
+
+  <span class="service-a">svc-api › POST /checkout</span>   <span class="duration">45ms</span>
+
+  <span class="service-a">svc-api  › POST /checkout  </span>  <span class="bar bar-a">████████████████████████</span>  <span class="duration">45ms</span>
+  <span class="service-b">svc-auth › ValidateToken   </span>  <span class="bar bar-b">████████                </span>  <span class="duration">12ms</span>
+  <span class="service-c">svc-cart › GetCart         </span>  <span class="bar bar-c">        ██████          </span>  <span class="duration"> 8ms</span>
+  <span class="dim">svc-db   › db.query        </span>  <span class="bar bar-d">        ████            </span>  <span class="duration"> 3ms</span>
+
+  <span class="dim">esc back  /search  e errors only  q quit</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Zero config</h3>
+            <p>One binary. No YAML, no Docker Compose, no cloud account. Works with any OTel SDK out of the box.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📡</div>
+            <h3>OTLP/gRPC &amp; HTTP</h3>
+            <p>Listens on port 4317 (gRPC) and 4318 (HTTP). Drop-in replacement for Jaeger or Tempo during local development.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔴</div>
+            <h3>Error spotlight</h3>
+            <p>Press <code>e</code> to filter to traces with errors. Find failures instantly without scrolling.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌊</div>
+            <h3>Live span tree</h3>
+            <p>Proportional timing bars show exactly where time is spent. Auto-refreshes every 200 ms as new spans arrive.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Statistics view</h3>
+            <p>P50, P95, P99 latency and error rates per service — no external metrics backend required.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🗂</div>
+            <h3>Ring buffer</h3>
+            <p>Keeps the last N traces in memory and evicts the oldest automatically. Configurable via <code>--capacity</code>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-number">1</span>
+            <div>
+              <h3>Start tracelocal</h3>
+              <pre><code>tracelocal</code></pre>
+              <p>Binds to <code>:4317</code> (gRPC) and <code>:4318</code> (HTTP) immediately.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">2</span>
+            <div>
+              <h3>Point your SDK at localhost</h3>
+              <pre><code>OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
+OTEL_EXPORTER_OTLP_PROTOCOL=grpc</code></pre>
+              <p>Works with Go, Python, Node.js, Java, Rust — any OTel-compatible SDK.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">3</span>
+            <div>
+              <h3>Watch your traces</h3>
+              <p>Spans appear in the terminal UI as they arrive. Navigate with arrow keys, press <code>enter</code> to inspect a trace, <code>s</code> for statistics.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Install -->
+    <section class="install" id="install">
+      <div class="container">
+        <h2>Install</h2>
+        <div class="install-options">
+
+          <div class="install-card">
+            <h3>go install</h3>
+            <pre><code>go install github.com/i9va/tracelocal/cmd/tracelocal@latest</code></pre>
+          </div>
+
+          <div class="install-card">
+            <h3>Binary release</h3>
+            <p>Download a pre-built binary for macOS, Linux, or Windows from the <a href="https://github.com/i9va/tracelocal/releases" target="_blank" rel="noopener">releases page</a>.</p>
+            <pre><code># macOS / Linux
+curl -sSL https://github.com/i9va/tracelocal/releases/latest/download/tracelocal_$(uname -s)_$(uname -m).tar.gz \
+  | tar -xz && mv tracelocal /usr/local/bin/</code></pre>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>tracelocal — MIT License</span>
+      <a href="https://github.com/i9va/tracelocal" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+</body>
+</html>

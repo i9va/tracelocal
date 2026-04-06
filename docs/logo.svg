@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none">
+  <!-- Icon: span waterfall -->
+  <rect width="48" height="48" rx="10" fill="#151820"/>
+
+  <!-- Span bars -->
+  <rect x="8"  y="12" width="32" height="5" rx="2.5" fill="#7c6df8"/>
+  <rect x="8"  y="21" width="22" height="5" rx="2.5" fill="#4fc3f7"/>
+  <rect x="14" y="30" width="14" height="5" rx="2.5" fill="#4ade80"/>
+
+  <!-- Wordmark -->
+  <text
+    x="60"
+    y="31"
+    font-family="'JetBrains Mono', 'Fira Code', ui-monospace, monospace"
+    font-size="20"
+    font-weight="600"
+    letter-spacing="-0.5"
+    fill="#e2e4ec"
+  >tracelocal</text>
+</svg>
