@@ -1,0 +1,14 @@
+# Built binary
+/tracelocal
+/dist/
+
+# Test output
+*.test
+*.out
+coverage.txt
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
