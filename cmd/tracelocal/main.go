@@ -76,7 +76,7 @@ func main() {
 // newLogger returns a logger that writes to the given file path, or discards
 // output when path is empty (the default for interactive TUI use).
 func newLogger(path string) *slog.Logger {
-	var w io.Writer = io.Discard
+	w := io.Discard
 	if path != "" {
 		f, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0o644)
 		if err != nil {

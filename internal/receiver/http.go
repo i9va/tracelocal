@@ -56,7 +56,7 @@ func (r *HTTPReceiver) Serve(ctx context.Context, lis net.Listener) error {
 		shutCtx, cancel := context.WithTimeout(context.Background(), gracefulStopTimeout)
 		defer cancel()
 		if err := srv.Shutdown(shutCtx); err != nil {
-			srv.Close()
+			srv.Close() //nolint:errcheck
 		}
 		return nil
 	case err := <-errCh:

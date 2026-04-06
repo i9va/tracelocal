@@ -71,9 +71,9 @@ func TestRingBufferEviction(t *testing.T) {
 	s := store.New(2, discardLog())
 
 	t1, t2, t3 := traceID(1), traceID(2), traceID(3)
-	s.Add(makeSpan(t1, spanID(1)))
-	s.Add(makeSpan(t2, spanID(2)))
-	s.Add(makeSpan(t3, spanID(3))) // should evict t1
+	s.Add(makeSpan(t1, spanID(1))) //nolint:errcheck
+	s.Add(makeSpan(t2, spanID(2))) //nolint:errcheck
+	s.Add(makeSpan(t3, spanID(3))) //nolint:errcheck // should evict t1
 
 	if _, ok := s.Get(t1); ok {
 		t.Error("trace 1 should have been evicted")
@@ -99,7 +99,7 @@ func TestHasError(t *testing.T) {
 
 	span := makeSpan(tid, spanID(1))
 	span.Status = model.Status{Code: model.StatusError, Message: "oops"}
-	s.Add(span)
+	s.Add(span) //nolint:errcheck
 
 	tr, ok := s.Get(tid)
 	if !ok {

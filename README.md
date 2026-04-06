@@ -1,6 +1,6 @@
 # tracelocal
 
-[![CI](https://github.com/henriqueholanda/tracelocal/actions/workflows/ci.yml/badge.svg)](https://github.com/henriqueholanda/tracelocal/actions/workflows/ci.yml)
+[![CI](https://github.com/i9va/tracelocal/actions/workflows/ci.yml/badge.svg)](https://github.com/i9va/tracelocal/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Zero-config local distributed tracing for backend developers.

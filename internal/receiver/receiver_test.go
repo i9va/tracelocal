@@ -66,7 +66,7 @@ func TestEndToEnd_BasicExport(t *testing.T) {
 	if err != nil {
 		t.Fatalf("dial: %v", err)
 	}
-	t.Cleanup(func() { conn.Close() })
+	t.Cleanup(func() { conn.Close() }) //nolint:errcheck
 
 	now := time.Now()
 
@@ -167,7 +167,7 @@ func TestEndToEnd_MultipleTraces(t *testing.T) {
 	if err != nil {
 		t.Fatalf("dial: %v", err)
 	}
-	t.Cleanup(func() { conn.Close() })
+	t.Cleanup(func() { conn.Close() }) //nolint:errcheck
 
 	now := time.Now()
 	client := collectortracepb.NewTraceServiceClient(conn)
@@ -213,7 +213,7 @@ func TestEndToEnd_ErrorStatus(t *testing.T) {
 	if err != nil {
 		t.Fatalf("dial: %v", err)
 	}
-	t.Cleanup(func() { conn.Close() })
+	t.Cleanup(func() { conn.Close() }) //nolint:errcheck
 
 	now := time.Now()
 	tid := make([]byte, 16)
