@@ -11,9 +11,9 @@ import (
 	"syscall"
 
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/henriqueholanda/tracelocal/internal/receiver"
-	"github.com/henriqueholanda/tracelocal/internal/store"
-	"github.com/henriqueholanda/tracelocal/internal/tui"
+	"github.com/i9va/tracelocal/internal/receiver"
+	"github.com/i9va/tracelocal/internal/store"
+	"github.com/i9va/tracelocal/internal/tui"
 )
 
 // version is set at build time via -ldflags "-X main.version=<tag>".

@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/henriqueholanda/tracelocal/internal/model"
+	"github.com/i9va/tracelocal/internal/model"
 )
 
 // --- ID tests ---------------------------------------------------------------

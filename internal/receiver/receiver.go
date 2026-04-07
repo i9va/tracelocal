@@ -10,7 +10,7 @@ import (
 	collectortracepb "go.opentelemetry.io/proto/otlp/collector/trace/v1"
 	"google.golang.org/grpc"
 
-	"github.com/henriqueholanda/tracelocal/internal/store"
+	"github.com/i9va/tracelocal/internal/store"
 )
 
 const gracefulStopTimeout = 5 * time.Second

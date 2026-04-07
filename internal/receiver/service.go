@@ -6,8 +6,8 @@ import (
 
 	collectortracepb "go.opentelemetry.io/proto/otlp/collector/trace/v1"
 
-	"github.com/henriqueholanda/tracelocal/internal/store"
-	"github.com/henriqueholanda/tracelocal/internal/model"
+	"github.com/i9va/tracelocal/internal/store"
+	"github.com/i9va/tracelocal/internal/model"
 )
 
 // traceService implements the OTLP TraceServiceServer.

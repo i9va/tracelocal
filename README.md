@@ -7,7 +7,7 @@
 
   [![CI](https://github.com/i9va/tracelocal/actions/workflows/ci.yml/badge.svg)](https://github.com/i9va/tracelocal/actions/workflows/ci.yml)
   [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-  [![Go 1.22+](https://img.shields.io/badge/Go-1.22+-00ADD8?logo=go)](go.mod)
+  [![Go 1.24+](https://img.shields.io/badge/Go-1.24+-00ADD8?logo=go)](go.mod)
 </div>
 
 ---
@@ -45,7 +45,7 @@ That's it. Any OTel SDK speaks OTLP — nothing else to configure.
 
 ## Install
 
-**go install** (requires Go 1.22+)
+**go install** (requires Go 1.24+)
 ```sh
 go install github.com/i9va/tracelocal/cmd/tracelocal@latest
 ```
@@ -122,13 +122,14 @@ const exporter = new OTLPTraceExporter({ url: 'grpc://localhost:4317' });
 ## Contributing
 
 ```sh
+make build           # build the binary
 make test            # run all tests
 go test -race ./...  # with race detector
-make build           # build the binary
+golangci-lint run ./...  # lint
 ```
 
-Issues and PRs are welcome. Open an issue before starting large changes.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request, and [SECURITY.md](SECURITY.md) before reporting a vulnerability. By participating in this project you agree to the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## License
 
-[MIT](LICENSE)
+[Apache License 2.0](LICENSE)

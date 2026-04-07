@@ -8,7 +8,7 @@ import (
 	resourcepb "go.opentelemetry.io/proto/otlp/resource/v1"
 	tracepb "go.opentelemetry.io/proto/otlp/trace/v1"
 
-	"github.com/henriqueholanda/tracelocal/internal/model"
+	"github.com/i9va/tracelocal/internal/model"
 )
 
 var (

@@ -14,7 +14,7 @@ import (
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/henriqueholanda/tracelocal/internal/store"
+	"github.com/i9va/tracelocal/internal/store"
 )
 
 // HTTPReceiver listens for OTLP/HTTP traces on a configurable address.

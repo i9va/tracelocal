@@ -1,4 +1,4 @@
-module github.com/henriqueholanda/tracelocal
+module github.com/i9va/tracelocal
 
 go 1.24.0
 

@@ -7,7 +7,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/henriqueholanda/tracelocal/internal/model"
+	"github.com/i9va/tracelocal/internal/model"
 )
 
 const defaultCapacity = 1000

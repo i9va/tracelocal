@@ -15,9 +15,9 @@ import (
 	resourcepb "go.opentelemetry.io/proto/otlp/resource/v1"
 	tracepb "go.opentelemetry.io/proto/otlp/trace/v1"
 
-	"github.com/henriqueholanda/tracelocal/internal/receiver"
-	"github.com/henriqueholanda/tracelocal/internal/store"
-	"github.com/henriqueholanda/tracelocal/internal/model"
+	"github.com/i9va/tracelocal/internal/receiver"
+	"github.com/i9va/tracelocal/internal/store"
+	"github.com/i9va/tracelocal/internal/model"
 )
 
 func discardLog() *slog.Logger {

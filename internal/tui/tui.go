@@ -10,8 +10,8 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/henriqueholanda/tracelocal/internal/model"
-	"github.com/henriqueholanda/tracelocal/internal/store"
+	"github.com/i9va/tracelocal/internal/model"
+	"github.com/i9va/tracelocal/internal/store"
 )
 
 const refreshInterval = 200 * time.Millisecond
