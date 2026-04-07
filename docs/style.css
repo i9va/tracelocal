@@ -316,6 +316,20 @@ nav a:hover { color: var(--text); text-decoration: none; }
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.install-badge {
+  font-size: 0.7rem;
+  font-weight: 500;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  color: var(--text-dim);
+  font-family: var(--font-sans);
 }
 
 .install-card p {

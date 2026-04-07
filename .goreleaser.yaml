@@ -30,6 +30,20 @@ archives:
 checksum:
   name_template: checksums.txt
 
+brews:
+  - name: tracelocal
+    repository:
+      owner: i9va
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    homepage: https://i9va.github.io/tracelocal
+    description: Zero-config local distributed tracing for backend developers.
+    license: Apache-2.0
+    install: |
+      bin.install "tracelocal"
+    test: |
+      system "#{bin}/tracelocal", "--version"
+
 changelog:
   sort: asc
   filters:

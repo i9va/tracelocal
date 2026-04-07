@@ -45,6 +45,11 @@ That's it. Any OTel SDK speaks OTLP — nothing else to configure.
 
 ## Install
 
+**Homebrew** (macOS/Linux)
+```sh
+brew install i9va/tap/tracelocal
+```
+
 **go install** (requires Go 1.24+)
 ```sh
 go install github.com/i9va/tracelocal/cmd/tracelocal@latest
