@@ -1,0 +1,53 @@
+name: Feature request
+description: Propose a new feature or improvement
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening a feature request, check the [open issues](https://github.com/i9va/tracelocal/issues) to see if it's already been discussed.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the situation where you felt something was missing or painful.
+      placeholder: When I'm debugging a slow request I have to... and it takes me... because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: What would you like to see? How should it work?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've considered
+      description: Other approaches you thought about and why they didn't fit.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - TUI / navigation
+        - OTLP receiver (gRPC or HTTP)
+        - Data model / store
+        - CLI flags / configuration
+        - Installation / distribution
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Would you like to implement this?
+      options:
+        - label: Yes, I'd like to open a PR for this

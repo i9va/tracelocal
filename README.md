@@ -6,7 +6,7 @@
   <br/>
 
   [![CI](https://github.com/i9va/tracelocal/actions/workflows/ci.yml/badge.svg)](https://github.com/i9va/tracelocal/actions/workflows/ci.yml)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+  [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
   [![Go 1.22+](https://img.shields.io/badge/Go-1.22+-00ADD8?logo=go)](go.mod)
 </div>
 

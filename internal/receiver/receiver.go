@@ -28,7 +28,7 @@ func New(addr string, s *store.Store, log *slog.Logger) *Receiver {
 	return &Receiver{addr: addr, store: s, log: log}
 }
 
-// Start binds to r.addr and calls Serve. It blocks until ctx is cancelled.
+// Start binds to r.addr and calls Serve. It blocks until ctx is canceled.
 func (r *Receiver) Start(ctx context.Context) error {
 	lis, err := net.Listen("tcp", r.addr)
 	if err != nil {
@@ -37,7 +37,7 @@ func (r *Receiver) Start(ctx context.Context) error {
 	return r.Serve(ctx, lis)
 }
 
-// Serve registers the OTLP handler on lis and blocks until ctx is cancelled.
+// Serve registers the OTLP handler on lis and blocks until ctx is canceled.
 // The gRPC server takes ownership of lis and closes it on shutdown.
 // Callers can pass a pre-created listener (e.g. from net.Listen(":0")) to
 // obtain the actual bound address before starting — useful in tests.

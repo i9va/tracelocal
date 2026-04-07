@@ -1,7 +1,6 @@
 package store_test
 
 import (
-	"io"
 	"log/slog"
 	"sync"
 	"testing"
@@ -12,7 +11,7 @@ import (
 )
 
 func discardLog() *slog.Logger {
-	return slog.New(slog.NewTextHandler(io.Discard, nil))
+	return slog.New(slog.DiscardHandler)
 }
 
 // traceID builds a TraceID with the given byte in position 0.

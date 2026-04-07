@@ -2,6 +2,7 @@ package receiver
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"io"
 	"log/slog"
@@ -30,7 +31,7 @@ func NewHTTP(addr string, s *store.Store, log *slog.Logger) *HTTPReceiver {
 	return &HTTPReceiver{addr: addr, store: s, log: log}
 }
 
-// Start binds to r.addr and calls Serve. It blocks until ctx is cancelled.
+// Start binds to r.addr and calls Serve. It blocks until ctx is canceled.
 func (r *HTTPReceiver) Start(ctx context.Context) error {
 	lis, err := net.Listen("tcp", r.addr)
 	if err != nil {
@@ -40,7 +41,7 @@ func (r *HTTPReceiver) Start(ctx context.Context) error {
 }
 
 // Serve registers the OTLP/HTTP handler on lis and blocks until ctx is
-// cancelled. Callers can pass a pre-created listener (useful in tests).
+// canceled. Callers can pass a pre-created listener (useful in tests).
 func (r *HTTPReceiver) Serve(ctx context.Context, lis net.Listener) error {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/v1/traces", r.handleTraces)
@@ -60,7 +61,7 @@ func (r *HTTPReceiver) Serve(ctx context.Context, lis net.Listener) error {
 		}
 		return nil
 	case err := <-errCh:
-		if err == http.ErrServerClosed {
+		if errors.Is(err, http.ErrServerClosed) {
 			return nil
 		}
 		return fmt.Errorf("http receiver: serve: %w", err)

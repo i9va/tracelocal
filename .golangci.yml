@@ -1,0 +1,45 @@
+version: "2"
+
+linters:
+  enable:
+    - errcheck        # unchecked error return values
+    - staticcheck     # staticcheck + stylecheck + gosimple
+    - govet           # suspicious constructs (printf, composites, etc.)
+    - ineffassign     # assignments whose values are never used
+    - unused          # unused code
+    - misspell        # common spelling mistakes in comments and strings
+    - nolintlint      # malformed or unnecessary nolint directives
+    - godot           # comments should end with a period
+    - errorlint       # mistakes around the errors package (Is/As/Unwrap)
+    - exhaustive      # missing cases in switch on enum types
+    - sloglint        # slog usage correctness
+
+  settings:
+    godot:
+      scope: comments
+      exclude:
+        - "^nolint:"
+        - "TODO"
+        - "FIXME"
+        - "NOTE"
+
+    nolintlint:
+      require-explanation: false
+      require-specific: true   # //nolint:errcheck, not just //nolint
+      allow-unused: false
+
+    exhaustive:
+      default-signifies-exhaustive: true
+
+    misspell:
+      locale: US
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+  exclusions:
+    rules:
+      # Test helpers don't need godot comments.
+      - path: "_test\\.go"
+        linters: [godot]

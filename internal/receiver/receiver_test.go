@@ -2,7 +2,6 @@ package receiver_test
 
 import (
 	"context"
-	"io"
 	"log/slog"
 	"net"
 	"testing"
@@ -22,7 +21,7 @@ import (
 )
 
 func discardLog() *slog.Logger {
-	return slog.New(slog.NewTextHandler(io.Discard, nil))
+	return slog.New(slog.DiscardHandler)
 }
 
 func strAttr(key, val string) *commonpb.KeyValue {
