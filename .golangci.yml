@@ -16,7 +16,7 @@ linters:
 
   settings:
     godot:
-      scope: comments
+      scope: declarations
       exclude:
         - "^nolint:"
         - "TODO"
@@ -37,9 +37,3 @@ linters:
 issues:
   max-issues-per-linter: 0
   max-same-issues: 0
-
-  exclusions:
-    rules:
-      # Test helpers don't need godot comments.
-      - path: "_test\\.go"
-        linters: [godot]

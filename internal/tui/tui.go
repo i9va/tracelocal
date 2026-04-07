@@ -45,7 +45,7 @@ func serviceStyle(name string) lipgloss.Style {
 	return lipgloss.NewStyle().Foreground(serviceColor(name)).Bold(true)
 }
 
-// Palette
+// Palette colors used across the TUI.
 var (
 	clrPurple    = lipgloss.Color("#7C3AED")
 	clrPurpleDim = lipgloss.Color("#4C1D95")
@@ -91,7 +91,7 @@ var (
 	styleBadge    = lipgloss.NewStyle().Foreground(clrGray)
 	styleSpanBold = lipgloss.NewStyle().Foreground(clrLightGray).Bold(true)
 
-	// Statistics view
+	// Statistics view styles.
 	styleColHeader  = lipgloss.NewStyle().Foreground(clrGray).Bold(true)
 	styleStatsSel   = lipgloss.NewStyle().Background(clrRowHover).Foreground(clrWhite)
 	styleStatsRow   = lipgloss.NewStyle().Foreground(clrLightGray)
@@ -99,7 +99,7 @@ var (
 	styleStatsErrN  = lipgloss.NewStyle().Foreground(clrRed).Bold(true)
 	styleStatsDur   = lipgloss.NewStyle().Foreground(clrGreen)
 
-	// Attributes panel
+	// Attributes panel styles.
 	styleAttrSection = lipgloss.NewStyle().Foreground(clrPurple).Bold(true)
 	styleAttrKey     = lipgloss.NewStyle().Foreground(clrLightGray)
 	styleAttrVal     = lipgloss.NewStyle().Foreground(clrGray)
